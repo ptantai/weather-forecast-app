@@ -31,6 +31,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  const SizedBox(height: 32),
                   const Text(
                     'how\'s today weather?',
                     style: TextStyle(fontSize: 24),
@@ -42,7 +43,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             AnimatedPositionedDirectional(
               curve: Curves.easeInOut,
               duration: const Duration(milliseconds: 500),
-              bottom: _isAnimated ? (screenHeight) : 0,
+              bottom: _isAnimated ? (screenHeight) : 50,
               width: _isAnimated ? (screenWidth - 32) : 240,
               start: _isAnimated ? 16 : ((screenWidth - 240) / 2),
               child: ElevatedButton(
@@ -51,7 +52,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     _isAnimated = !_isAnimated;
                   });
                   Navigator.of(context).pushReplacement(PageRouteBuilder(
-                    transitionDuration: const Duration(milliseconds: 600),
+                    transitionDuration: const Duration(milliseconds: 800),
                     pageBuilder: (context, animation, secondaryAnimation) =>
                         SlideTransition(
                             position: Tween<Offset>(
