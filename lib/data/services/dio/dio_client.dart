@@ -12,8 +12,14 @@ class DioClient extends DioForNative {
   }) {
     interceptors.addAll([
       // listing all interceptors
-      NetworkInterceptor(Connectivity())
+      NetworkInterceptor(
+        Connectivity(),
+      ),
+      LogInterceptor(
+        requestHeader: false,
+        responseHeader: false,
+      ),
     ]);
-    options = BaseOptions(baseUrl: baseUrl, headers: {'key': apiKey});
+    options = BaseOptions(baseUrl: baseUrl, queryParameters: {'key': apiKey});
   }
 }

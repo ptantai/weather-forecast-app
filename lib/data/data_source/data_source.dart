@@ -1,4 +1,3 @@
-import 'package:weather_forecast_app/application.dart';
 import 'package:weather_forecast_app/data/entity/weather.dart';
 
 import 'weather_api.dart';
@@ -8,8 +7,8 @@ abstract class DataSources {
 }
 
 class DataSourcesImpl implements DataSources {
-  final apiClient = getIt.get<WeatherApi>();
-
+  final WeatherApi apiClient;
+  DataSourcesImpl(this.apiClient);
   @override
   Future<WeatherResponse> getCurrentWeather(String params) async {
     return apiClient.getCurrentWeather(params);

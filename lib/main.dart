@@ -7,12 +7,12 @@ import 'package:weather_forecast_app/application.dart';
 import 'presentation/welcome_screen.dart';
 
 Future<void> main() async {
-  await WeatherApplication.configure();
-  runApp(const WeatherApp());
+  WeatherApplication.configure();
+  runApp(const MyApp());
 }
 
-class WeatherApp extends StatelessWidget {
-  const WeatherApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

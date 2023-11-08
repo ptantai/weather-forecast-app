@@ -18,17 +18,17 @@ WeatherResponse _$WeatherResponseFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$WeatherResponseToJson(WeatherResponse instance) =>
     <String, dynamic>{
-      'location': instance.location?.toJson(),
-      'current': instance.current?.toJson(),
+      'location': instance.location,
+      'current': instance.current,
     };
 
 CurrentResponse _$CurrentResponseFromJson(Map<String, dynamic> json) =>
     CurrentResponse(
-      lastUpdatedEpoch: json['lastUpdatedEpoch'] as int?,
-      lastUpdated: json['lastUpdated'] as String?,
-      tempC: json['tempC'] as int?,
-      tempF: (json['tempF'] as num?)?.toDouble(),
-      isDay: json['isDay'] as int?,
+      lastUpdatedEpoch: (json['last_updated_epoch'] as num?)?.toDouble(),
+      lastUpdated: json['last_update'] as String?,
+      tempC: (json['temp_c'] as num?)?.toDouble(),
+      tempF: (json['temp_f'] as num?)?.toDouble(),
+      isDay: json['is_day'] as int?,
       condition: json['condition'] == null
           ? null
           : ConditionResponse.fromJson(
@@ -37,12 +37,12 @@ CurrentResponse _$CurrentResponseFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$CurrentResponseToJson(CurrentResponse instance) =>
     <String, dynamic>{
-      'lastUpdatedEpoch': instance.lastUpdatedEpoch,
-      'lastUpdated': instance.lastUpdated,
-      'tempC': instance.tempC,
-      'tempF': instance.tempF,
-      'isDay': instance.isDay,
-      'condition': instance.condition?.toJson(),
+      'last_updated_epoch': instance.lastUpdatedEpoch,
+      'last_update': instance.lastUpdated,
+      'temp_c': instance.tempC,
+      'temp_f': instance.tempF,
+      'is_day': instance.isDay,
+      'condition': instance.condition,
     };
 
 ConditionResponse _$ConditionResponseFromJson(Map<String, dynamic> json) =>
@@ -66,7 +66,9 @@ LocationResponse _$LocationResponseFromJson(Map<String, dynamic> json) =>
       country: json['country'] as String?,
       lat: (json['lat'] as num?)?.toDouble(),
       lon: (json['lon'] as num?)?.toDouble(),
-      tzId: json['tzId'] as String?,
+      tzId: json['tz_id'] as String?,
+      localtimeEpoch: json['localtime_epoch'] as int?,
+      localtime: json['localtime'] as String?,
     );
 
 Map<String, dynamic> _$LocationResponseToJson(LocationResponse instance) =>
@@ -76,5 +78,7 @@ Map<String, dynamic> _$LocationResponseToJson(LocationResponse instance) =>
       'country': instance.country,
       'lat': instance.lat,
       'lon': instance.lon,
-      'tzId': instance.tzId,
+      'tz_id': instance.tzId,
+      'localtime_epoch': instance.localtimeEpoch,
+      'localtime': instance.localtime,
     };

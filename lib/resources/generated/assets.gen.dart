@@ -8,29 +8,14 @@
 // ignore_for_file: directives_ordering,unnecessary_import,implicit_dynamic_list_literal,deprecated_member_use
 
 import 'package:flutter/widgets.dart';
+import 'package:lottie/lottie.dart';
 
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
-  /// File path: assets/images/icon-full-moon.png
-  AssetGenImage get iconFullMoon =>
-      const AssetGenImage('assets/images/icon-full-moon.png');
-
-  /// File path: assets/images/icon-partly-cloudy.png
-  AssetGenImage get iconPartlyCloudy =>
-      const AssetGenImage('assets/images/icon-partly-cloudy.png');
-
-  /// File path: assets/images/icon-rain.png
-  AssetGenImage get iconRain =>
-      const AssetGenImage('assets/images/icon-rain.png');
-
-  /// File path: assets/images/icon-storm.png
-  AssetGenImage get iconStorm =>
-      const AssetGenImage('assets/images/icon-storm.png');
-
-  /// File path: assets/images/icon-sunny.png
-  AssetGenImage get iconSunny =>
-      const AssetGenImage('assets/images/icon-sunny.png');
+  /// File path: assets/images/cloudy-lottie.json
+  LottieGenImage get cloudyLottie =>
+      const LottieGenImage('assets/images/cloudy-lottie.json');
 
   /// File path: assets/images/icon-thermometer.png
   AssetGenImage get iconThermometer =>
@@ -40,15 +25,36 @@ class $AssetsImagesGen {
   AssetGenImage get iconWeatherApp =>
       const AssetGenImage('assets/images/icon-weather-app.png');
 
+  /// File path: assets/images/icon-weather-lottie.json
+  LottieGenImage get iconWeatherLottie =>
+      const LottieGenImage('assets/images/icon-weather-lottie.json');
+
+  /// File path: assets/images/intro-sunset-lottie.json
+  LottieGenImage get introSunsetLottie =>
+      const LottieGenImage('assets/images/intro-sunset-lottie.json');
+
+  /// File path: assets/images/rainy-lottie.json
+  LottieGenImage get rainyLottie =>
+      const LottieGenImage('assets/images/rainy-lottie.json');
+
+  /// File path: assets/images/stormy-lottie.json
+  LottieGenImage get stormyLottie =>
+      const LottieGenImage('assets/images/stormy-lottie.json');
+
+  /// File path: assets/images/sunny-lottie.json
+  LottieGenImage get sunnyLottie =>
+      const LottieGenImage('assets/images/sunny-lottie.json');
+
   /// List of all assets
-  List<AssetGenImage> get values => [
-        iconFullMoon,
-        iconPartlyCloudy,
-        iconRain,
-        iconStorm,
-        iconSunny,
+  List<dynamic> get values => [
+        cloudyLottie,
         iconThermometer,
-        iconWeatherApp
+        iconWeatherApp,
+        iconWeatherLottie,
+        introSunsetLottie,
+        rainyLottie,
+        stormyLottie,
+        sunnyLottie
       ];
 }
 
@@ -124,6 +130,65 @@ class AssetGenImage {
       _assetName,
       bundle: bundle,
       package: package,
+    );
+  }
+
+  String get path => _assetName;
+
+  String get keyName => _assetName;
+}
+
+class LottieGenImage {
+  const LottieGenImage(this._assetName);
+
+  final String _assetName;
+
+  LottieBuilder lottie({
+    Animation<double>? controller,
+    bool? animate,
+    FrameRate? frameRate,
+    bool? repeat,
+    bool? reverse,
+    LottieDelegates? delegates,
+    LottieOptions? options,
+    void Function(LottieComposition)? onLoaded,
+    LottieImageProviderFactory? imageProviderFactory,
+    Key? key,
+    AssetBundle? bundle,
+    Widget Function(BuildContext, Widget, LottieComposition?)? frameBuilder,
+    ImageErrorWidgetBuilder? errorBuilder,
+    double? width,
+    double? height,
+    BoxFit? fit,
+    AlignmentGeometry? alignment,
+    String? package,
+    bool? addRepaintBoundary,
+    FilterQuality? filterQuality,
+    void Function(String)? onWarning,
+  }) {
+    return Lottie.asset(
+      _assetName,
+      controller: controller,
+      animate: animate,
+      frameRate: frameRate,
+      repeat: repeat,
+      reverse: reverse,
+      delegates: delegates,
+      options: options,
+      onLoaded: onLoaded,
+      imageProviderFactory: imageProviderFactory,
+      key: key,
+      bundle: bundle,
+      frameBuilder: frameBuilder,
+      errorBuilder: errorBuilder,
+      width: width,
+      height: height,
+      fit: fit,
+      alignment: alignment,
+      package: package,
+      addRepaintBoundary: addRepaintBoundary,
+      filterQuality: filterQuality,
+      onWarning: onWarning,
     );
   }
 

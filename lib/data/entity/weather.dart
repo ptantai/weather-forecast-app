@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'weather.g.dart';
 
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable()
 class WeatherResponse {
   final LocationResponse? location;
   final CurrentResponse? current;
@@ -18,12 +18,17 @@ class WeatherResponse {
   Map<String, dynamic> toJson() => _$WeatherResponseToJson(this);
 }
 
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable()
 class CurrentResponse {
-  final int? lastUpdatedEpoch;
+  @JsonKey(name: 'last_updated_epoch')
+  final double? lastUpdatedEpoch;
+  @JsonKey(name: 'last_update')
   final String? lastUpdated;
-  final int? tempC;
+  @JsonKey(name: 'temp_c')
+  final double? tempC;
+  @JsonKey(name: 'temp_f')
   final double? tempF;
+  @JsonKey(name: 'is_day')
   final int? isDay;
   final ConditionResponse? condition;
 
@@ -41,7 +46,7 @@ class CurrentResponse {
   Map<String, dynamic> toJson() => _$CurrentResponseToJson(this);
 }
 
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable()
 class ConditionResponse {
   final String? text;
   final String? icon;
@@ -57,14 +62,18 @@ class ConditionResponse {
   Map<String, dynamic> toJson() => _$ConditionResponseToJson(this);
 }
 
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable()
 class LocationResponse {
   final String? name;
   final String? region;
   final String? country;
   final double? lat;
   final double? lon;
+  @JsonKey(name: 'tz_id')
   final String? tzId;
+  @JsonKey(name: 'localtime_epoch')
+  final int? localtimeEpoch;
+  final String? localtime;
 
   LocationResponse({
     required this.name,
@@ -73,6 +82,8 @@ class LocationResponse {
     required this.lat,
     required this.lon,
     required this.tzId,
+    required this.localtimeEpoch,
+    required this.localtime,
   });
   factory LocationResponse.fromJson(Map<String, dynamic> json) =>
       _$LocationResponseFromJson(json);

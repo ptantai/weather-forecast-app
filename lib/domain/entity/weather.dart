@@ -9,9 +9,9 @@ class Weather {
 }
 
 class Current {
-  final int? lastUpdatedEpoch;
+  final double? lastUpdatedEpoch;
   final String? lastUpdated;
-  final int? tempC;
+  final double? tempC;
   final double? tempF;
   final int? isDay;
   final Condition? condition;
@@ -45,6 +45,8 @@ class Location {
   final double? lat;
   final double? lon;
   final String? tzId;
+  final int? localtimeEpoch;
+  final String? localtime;
 
   Location({
     this.name,
@@ -53,5 +55,7 @@ class Location {
     this.lat,
     this.lon,
     this.tzId,
+    this.localtimeEpoch,
+    this.localtime,
   });
 }

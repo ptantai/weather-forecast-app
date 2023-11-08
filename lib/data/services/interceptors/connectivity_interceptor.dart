@@ -15,6 +15,7 @@ class NetworkInterceptor extends Interceptor {
     if (!kDebugMode && connectivityResult == ConnectivityResult.none) {
       return handler.reject(OfflineError(requestOptions: options));
     }
+    
     return handler.next(options);
   }
 }
@@ -24,6 +25,6 @@ class OfflineError extends DioException {
       : super(
           requestOptions: requestOptions,
           type: DioExceptionType.connectionError,
-          message: 'No Connection!',
+          message: 'No Internet Connection!',
         );
 }

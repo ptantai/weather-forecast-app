@@ -35,6 +35,8 @@ class WeatherRepositoryImpl implements WeatherRepository {
       name: location?.name,
       region: location?.region,
       tzId: location?.tzId,
+      localtime: location?.localtime,
+      localtimeEpoch: location?.localtimeEpoch,
     );
   }
 
